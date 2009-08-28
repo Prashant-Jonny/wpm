@@ -5,8 +5,6 @@ using System.Collections.Generic;
 
 namespace wpm
 {
-	
-	
 	public class PackageCreator
 	{
 		private string target;
@@ -83,6 +81,8 @@ namespace wpm
 					return;
 				}
 			}
+
+			Archive.Create(target);
 		}
 	}
 }
