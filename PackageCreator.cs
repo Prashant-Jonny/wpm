@@ -39,14 +39,14 @@ namespace wpm
 			/* Check if the target contains the 'data' directory. */
 			if(!((IList<string>)dirContents).Contains(target + "/data"))
 			{
-				System.Console.WriteLine("Error: directory " + target + " does not contain a 'data' directory.");
+				Console.WriteLine("Error: directory " + target + " does not contain a 'data' directory.");
 				return false;
 			}
 
 			/* Check if the target contains the 'metadata' directory. */
 			if(!((IList<string>)dirContents).Contains(target + "/metadata"))
 			{
-				System.Console.WriteLine("Error: directory " + target + " does not contain a 'metadata' directory.");
+				Console.WriteLine("Error: directory " + target + " does not contain a 'metadata' directory.");
 				return false;
 			}
 
@@ -55,7 +55,16 @@ namespace wpm
 			/* Check if the target contains the metadata.xml file. */
 			if(!((IList<string>)dirContents).Contains(target + "/metadata/metadata.xml"))
 			{
-				System.Console.WriteLine("Error: file " + target + "/metadata/metadata.xml does not exist.");
+				Console.WriteLine("Error: file " + target + "/metadata/metadata.xml does not exist.");
+				return false;
+			}
+
+			dirContents = Directory.GetFiles(target + "/data");
+
+			/* Check if the data directory is empty. */
+			if(dirContents.Length == 0)
+			{
+				Console.WriteLine("Error: the data directory is empty.");
 				return false;
 			}
 			
