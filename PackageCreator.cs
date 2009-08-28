@@ -49,6 +49,15 @@ namespace wpm
 				System.Console.WriteLine("Error: directory " + target + " does not contain a 'metadata' directory.");
 				return false;
 			}
+
+			dirContents = Directory.GetFiles(target + "/metadata");
+
+			/* Check if the target contains the metadata.xml file. */
+			if(!((IList<string>)dirContents).Contains(target + "/metadata/metadata.xml"))
+			{
+				System.Console.WriteLine("Error: file " + target + "/metadata/metadata.xml does not exist.");
+				return false;
+			}
 			
 			return true;
 		}
