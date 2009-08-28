@@ -10,6 +10,7 @@ namespace wpm
 	public class PackageCreator
 	{
 		private string target;
+		private bool validated;
 		
 		public PackageCreator(string[] args)
 		{
@@ -22,6 +23,7 @@ namespace wpm
 			}
 
 			target = args[1];
+			validated = false;
 		}
 
 		/* Checks if the target directory contains the required information. */
@@ -67,13 +69,20 @@ namespace wpm
 				Console.WriteLine("Error: the data directory is empty.");
 				return false;
 			}
-			
+
+			validated = true;
 			return true;
 		}
 
 		public void Pack()
 		{
-
+			if(!validated)
+			{
+				if(!Validate())
+				{
+					return;
+				}
+			}
 		}
 	}
 }
