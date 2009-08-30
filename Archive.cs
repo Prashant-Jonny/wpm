@@ -19,16 +19,21 @@ namespace wpm
 			string packageName = "package.wpx";
 			
 			ZipFile package = ZipFile.Create(packageName);
-			
-			string[] files = Directory.GetFiles(path);
 
 			package.BeginUpdate();
+
+			string cwd = Directory.GetCurrentDirectory();
+			Directory.SetCurrentDirectory(path);
+
+			string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
 			
 			foreach(string file in files)
 			{
-				package.Add(file);
-				System.Console.WriteLine(file);
+				package.Add(Path.GetFileName(file));
+				
 			}
+
+			
 
 			package.CommitUpdate();
 			package.Close();

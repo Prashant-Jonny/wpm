@@ -40,6 +40,7 @@
     <Compile Include="PackageInfo.cs" />
     <Compile Include="PackageCreator.cs" />
     <Compile Include="Archive.cs" />
+    <Compile Include="Validator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
