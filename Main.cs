@@ -24,6 +24,15 @@ namespace wpm
 
 			switch(args[0])
 			{
+				case "install":
+					break;
+
+				case "update":
+					break;
+				
+				case "remove":
+					break;
+				
 				case "create":
 					PackageCreator creator = new PackageCreator(args);
 
