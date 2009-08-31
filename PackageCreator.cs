@@ -27,6 +27,13 @@ namespace wpm
 		{
 			if(!Validator.ValidateDirectoryStructure(target))
 			{
+				valdated = false;
+				return false;
+			}
+
+			if(!Validator.ValidateMetadata())
+			{
+				valdated = false;
 				return false;
 			}
 
