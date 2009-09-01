@@ -1,0 +1,14 @@
+This is an attempt to create a package manager for the Whitix operating system.
+
+The package format
+------------------
+The package will be an archive which contains two directories: data & metadata.
+The data folder will contain all files to be extracted from the package. Nothing fancy here.
+The metadata directory should always contain a file called metadata.xml.
+This file will contain all metadata requiared for the package to be installed:
+	-internal and external version
+	-title and name
+	-some description
+	-optional and required dependencies
+	-and maybe some other stuff....
+The metadata directory also may contain some scripts to be executed before/after package installation/removal.
