@@ -16,10 +16,10 @@ namespace wpm
 		{
 		}
 
-		public static void Create(string path)
+		public static void Create(string path, string outputFilename)
 		{
 			string dir, tmp, tmp2;
-			string packageName = "package.wpx";
+			string packageName = outputFilename + ".wpx";
 			Stack<string> dirStack = new Stack<string>();
 
 			if(File.Exists(packageName))

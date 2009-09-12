@@ -5,27 +5,29 @@ namespace wpm
 {
 	public class PackageCreator
 	{
-		private string target;
+		private string directory;
+		private string outputFile;
 		private bool validated;
 		
 		public PackageCreator(string[] args)
 		{
-			target = "";
+			directory = "";
 			
-			if(args.Length < 2)
+			if(args.Length < 3)
 			{
-				Console.WriteLine("Usage: wpm create <directory>");
+				Console.WriteLine("Usage: wpm create <directory> <filename>.wpx");
 				return;
 			}
 
-			target = args[1];
+			directory = args[1];
+			outputFile = args[2];
 			validated = false;
 		}
 
 		/* Checks if the target directory contains the required information. */
 		public bool Validate()
 		{
-			if(!Validator.ValidateDirectoryStructure(target))
+			if(!Validator.ValidateDirectoryStructure(directory))
 			{
 				validated = false;
 				return false;
@@ -51,7 +53,7 @@ namespace wpm
 				}
 			}
 
-			Archive.Create(target);
+			Archive.Create(directory, outputFile);
 		}
 	}
 }
